@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # RAG AI Agent
 
 A simple Retrieval-Augmented Generation (RAG) agent built with **LangGraph** and **ChromaDB**.
@@ -59,3 +60,6 @@ python main.py
 2. Run `python main.py`
 3. The system ingests PDFs into ChromaDB (first run only)
 4. Ask questions interactively - the agent retrieves relevant chunks and generates answers
+=======
+# RAG_AI_Agent_Assignment
+>>>>>>> c437c779fbe449961f1b2aa382e760aeab7bece3
