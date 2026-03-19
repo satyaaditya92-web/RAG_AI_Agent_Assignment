@@ -28,6 +28,12 @@ from langchain_core.prompts import ChatPromptTemplate
 from ingestion import CHROMA_DB_DIR, EMBEDDING_MODEL
 
 
+# Check for required environment variables
+import os
+if not os.getenv("OPENAI_API_KEY"):
+    raise ValueError("OPENAI_API_KEY environment variable is not set. Please create a .env file with your OpenAI API key.")
+
+
 # ==========================================================================
 # CONFIGURATION - MODIFY HERE
 # ==========================================================================
@@ -40,12 +46,11 @@ TOP_K = 4
 # --------------------------------------------------------------------------
 # LLM SETTINGS - Students: experiment with these!
 # --------------------------------------------------------------------------
-# Model to use for generating answers. Options:
-#   "gpt-4.1-mini"     - Fast, cheap, good quality (default)
-#   "gpt-4.1-nano"     - Fastest, cheapest, lower quality
-#   "gpt-4o-mini"      - Previous gen, fast and cheap
-#   "gpt-4o"           - High quality, slower, more expensive
-LLM_MODEL = "gpt-4.1-mini"
+# Model to use for generating answers. Options (check your OpenAI account for access):
+#   "gpt-3.5-turbo"   - Widely available, fast, cheap (default, recommended if gpt-4o-mini unavailable)
+#   "gpt-4o-mini"     - Better quality, but may require upgraded account/credits
+#   "gpt-4o"          - High quality, slower, more expensive (requires upgraded account)
+LLM_MODEL = "gpt-3.5-turbo"
 
 # Temperature controls randomness:
 #   0.0 = deterministic (same answer every time) - best for factual Q&A
@@ -66,8 +71,10 @@ TEMPERATURE = 0
 #   - "Answer in bullet points only."
 #   - "If you're not sure, list what you DO know and what's missing."
 #
-SYSTEM_PROMPT = """You are a helpful assistant. Answer the user's question based ONLY \
-on the following context from retrieved documents.
+SYSTEM_PROMPT = """Act as a mechanic advisor that:
+Diagnoses problems step by step
+Rates urgency: "Fix Immediately", "Schedule Soon", "Can Wait"
+Adds estimated difficulty for DIY: Easy, Moderate, Professional Only.
 
 RULES:
 1. Only use information from the provided context below.
@@ -194,11 +201,35 @@ def generate(state: RAGState) -> dict:
     chain = prompt | llm
 
     # Invoke the chain with our context, sources, and question
-    response = chain.invoke({
-        "context": context,
-        "sources": sources,
-        "question": question,
-    })
+    try:
+        response = chain.invoke({
+            "context": context,
+            "sources": sources,
+            "question": question,
+        })
+    except Exception as e:
+        error_str = str(e)
+        if "model_not_found" in error_str or "does not have access to model" in error_str:
+            # Try fallback to gpt-3.5-turbo if primary model is unavailable
+            print(f"  [Generate] Primary model '{LLM_MODEL}' unavailable, trying gpt-3.5-turbo...")
+            try:
+                fallback_llm = ChatOpenAI(model="gpt-3.5-turbo", temperature=TEMPERATURE)
+                fallback_chain = prompt | fallback_llm
+                response = fallback_chain.invoke({
+                    "context": context,
+                    "sources": sources,
+                    "question": question,
+                })
+                print(f"  [Generate] Answer produced using fallback model.")
+                return {"answer": response.content}
+            except Exception as fallback_e:
+                error_msg = f"Error calling OpenAI API: {str(fallback_e)}. Both primary and fallback models failed."
+                print(f"  [Generate] {error_msg}")
+                return {"answer": error_msg}
+        else:
+            error_msg = f"Error calling OpenAI API: {error_str}. Please check your API key and model configuration."
+            print(f"  [Generate] {error_msg}")
+            return {"answer": error_msg}
 
     print(f"  [Generate] Answer produced.")
     return {"answer": response.content}

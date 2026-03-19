@@ -1,0 +1,143 @@
+PS C:\Users\Subhash\Downloads\Project\RAG_AI_Agent\RAG_AI_Agent_Assignment> python ./main.py
+============================================================
+       RAG AI Agent - LangGraph + ChromaDB
+============================================================     
+
+Using vector database at 'chroma_db/'.
+
+============================================================     
+       RAG Agent Ready - Ask Questions!
+============================================================     
+Type your question and press Enter. Type 'quit' to exit.
+
+You: what is Chassis type?
+
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights: 100%|█████| 103/103 [00:00<00:00, 11656.50it/s]
+BertModel LOAD REPORT from: sentence-transformers/all-MiniLM-L6-v2
+Key                     | Status     |  |
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  |
+
+Notes:
+- UNEXPECTED    :can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+C:\Users\Subhash\Downloads\Project\RAG_AI_Agent\RAG_AI_Agent_Assignment\rag_agent.py:116: LangChainDeprecationWarning: The class `Chroma` was deprecated in LangChain 0.2.9 and will be removed in 1.0. An updated version of the class exists in the `langchain-chroma package and should be used instead. To use it run `pip install -U `langchain-chroma` and import as `from `langchain_chroma import Chroma``.
+  vector_store = Chroma(
+  [Retrieve] Found 4 relevant chunks for: 'what is Chassis type?'
+    [1] data\Automotive_Engineering.pdf (Page 18)
+    [2] data\Automotive_Engineering.pdf (Page 18)
+    [3] data\Automotive_Engineering.pdf (Page 18)
+    [4] data\Automotive_Engineering.pdf (Page 18)
+  [Generate] Answer produced.
+
+Assistant: Step-by-step diagnosis of "Chassis type":
+
+1. Definition: The chassis type refers to the structural framework of a vehicle that supports the body and other components.      
+2. Main types: There are two main types of vehicle chassis:      
+   - Separate chassis: This type is usually used on heavier vehicles. It consists of a distinct frame separate from the body.     
+   - Integrated chassis (monocoque): This type is used for almost all cars. The body and chassis are integrated into a single structure.
+3. Visual reference: Figures 1.14 and 1.15 in the source show the two main types of chassis.
+4. Application: Separate chassis are common in heavier vehicles, while integrated chassis are typical in most cars.
+
+Urgency: Can Wait (This is informational and does not require immediate action)
+DIY Difficulty: Easy (Understanding chassis types is basic knowledge for vehicle mechanics)
+
+Sources:
+- Automotive_Engineering.pdf, Page 18 (Sections 1.1.4 Chassis type and body panels, Figures 1.14 and 1.15)
+
+------------------------------------------------------------     
+
+You: exit
+Goodbye!
+PS C:\Users\Subhash\Downloads\Project\RAG_AI_Agent\RAG_AI_Agent_Assignment> python ./main.py
+============================================================
+       RAG AI Agent - LangGraph + ChromaDB
+============================================================     
+
+Using vector database at 'chroma_db/'.
+
+============================================================     
+       RAG Agent Ready - Ask Questions!
+============================================================     
+Type your question and press Enter. Type 'quit' to exit.
+
+You: what is Chassis type?
+
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights: 100%|█████| 103/103 [00:00<00:00, 10064.61it/s]
+BertModel LOAD REPORT from: sentence-transformers/all-MiniLM-L6-v2
+Key                     | Status     |  |
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  |
+
+Notes:
+- UNEXPECTED    :can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+C:\Users\Subhash\Downloads\Project\RAG_AI_Agent\RAG_AI_Agent_Assignment\rag_agent.py:121: LangChainDeprecationWarning: The class `Chroma` was deprecated in LangChain 0.2.9 and will be removed in 1.0. An updated version of the class exists in the `langchain-chroma package and should be used instead. To use it run `pip install -U `langchain-chroma` and import as `from `langchain_chroma import Chroma``.
+  vector_store = Chroma(
+  [Retrieve] Found 4 relevant chunks for: 'what is Chassis type?'
+    [1] data\Automotive_Engineering.pdf (Page 18)
+    [2] data\Automotive_Engineering.pdf (Page 18)
+    [3] data\Automotive_Engineering.pdf (Page 18)
+    [4] data\Automotive_Engineering.pdf (Page 18)
+  [Generate] Error calling OpenAI API: Error code: 403 - {'error': {'message': 'Project `proj_Mq1mjVfXVPwvLZ45BFLFeL9l` does not have access to model `gpt-4o-mini`', 'type': 'invalid_request_error', 'param': None, 'code': 'model_not_found'}}. Please check your API key and model configuration.
+
+Assistant: Error calling OpenAI API: Error code: 403 - {'error': {'message': 'Project `proj_Mq1mjVfXVPwvLZ45BFLFeL9l` does not have access to model `gpt-4o-mini`', 'type': 'invalid_request_error', 'param': None, 'code': 'model_not_found'}}. Please check your API key and model configuration.
+
+------------------------------------------------------------     
+
+You: Traceback (most recent call last):
+  File "C:\Users\Subhash\Downloads\Project\RAG_AI_Agent\RAG_AI_Agent_Assignment\main.py", line 71, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\Subhash\Downloads\Project\RAG_AI_Agent\RAG_AI_Agent_Assignment\main.py", line 54, in main
+    question = input("You: ").strip()
+               ~~~~~^^^^^^^^^
+KeyboardInterrupt
+PS C:\Users\Subhash\Downloads\Project\RAG_AI_Agent\RAG_AI_Agent_Assignment> python ./main.py
+============================================================
+       RAG AI Agent - LangGraph + ChromaDB
+============================================================     
+
+Using vector database at 'chroma_db/'.
+
+============================================================     
+       RAG Agent Ready - Ask Questions!
+============================================================     
+Type your question and press Enter. Type 'quit' to exit.
+
+You: what is Chassis type?
+
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights: 100%|█████| 103/103 [00:00<00:00, 11104.60it/s]
+BertModel LOAD REPORT from: sentence-transformers/all-MiniLM-L6-v2
+Key                     | Status     |  |
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  |
+
+Notes:
+- UNEXPECTED    :can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+C:\Users\Subhash\Downloads\Project\RAG_AI_Agent\RAG_AI_Agent_Assignment\rag_agent.py:121: LangChainDeprecationWarning: The class `Chroma` was deprecated in LangChain 0.2.9 and will be removed in 1.0. An updated version of the class exists in the `langchain-chroma package and should be used instead. To use it run `pip install -U `langchain-chroma` and import as `from `langchain_chroma import Chroma``.
+  vector_store = Chroma(
+  [Retrieve] Found 4 relevant chunks for: 'what is Chassis type?'
+    [1] data\Automotive_Engineering.pdf (Page 18)
+    [2] data\Automotive_Engineering.pdf (Page 18)
+    [3] data\Automotive_Engineering.pdf (Page 18)
+    [4] data\Automotive_Engineering.pdf (Page 18)
+  [Generate] Answer produced.
+
+Assistant: Based on the provided information, the chassis type refers to the main structure of a vehicle that supports the body and other components. There are two main types of chassis: separate chassis and integrated chassis (monocoque). Separate chassis are typically used in heavier vehicles, while integrated chassis are commonly found in almost all cars.
+
+Diagnosis:
+1. Check if your vehicle has a separate chassis or an integrated chassis (monocoque).
+2. Understanding the chassis type can help determine the overall structure and design of your vehicle.
+
+Urgency: Can Wait
+Difficulty for DIY: Easy
+
+Sources:
+- [1] data\Automotive_Engineering.pdf (Page 18)
+- [2] data\Automotive_Engineering.pdf (Page 18)
+- [3] data\Automotive_Engineering.pdf (Page 18)
+- [4] data\Automotive_Engineering.pdf (Page 18)
+
+------------------------------------------------------------ 

@@ -1,0 +1,92 @@
+PS C:\Users\Subhash\Downloads\Project\RAG_AI_Agent\RAG_AI_Agent_Assignment> python ./main.py
+============================================================
+       RAG AI Agent - LangGraph + ChromaDB
+============================================================     
+
+Using vector database at 'chroma_db/'.
+
+============================================================     
+       RAG Agent Ready - Ask Questions!
+============================================================     
+Type your question and press Enter. Type 'quit' to exit.
+
+You: what are main systems?
+
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights: 100%|█████| 103/103 [00:00<00:00, 11478.42it/s]
+BertModel LOAD REPORT from: sentence-transformers/all-MiniLM-L6-v2
+Key                     | Status     |  |
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  |
+
+Notes:
+- UNEXPECTED    :can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+C:\Users\Subhash\Downloads\Project\RAG_AI_Agent\RAG_AI_Agent_Assignment\rag_agent.py:121: LangChainDeprecationWarning: The class `Chroma` was deprecated in LangChain 0.2.9 and will be removed in 1.0. An updated version of the class exists in the `langchain-chroma package and should be used instead. To use it run `pip install -U `langchain-chroma` and import as `from `langchain_chroma import Chroma``.
+  vector_store = Chroma(
+  [Retrieve] Found 4 relevant chunks for: 'what are main systems?'
+    [1] data\Automotive_Engineering.pdf (Page 22)
+    [2] data\Automotive_Engineering.pdf (Page 22)
+    [3] data\Automotive_Engineering.pdf (Page 21)
+    [4] data\Automotive_Engineering.pdf (Page 21)
+  [Generate] Answer produced.
+
+Assistant: Based on the provided information, the main systems in a vehicle are the engine system, electrical system, chassis system, and transmission system. These systems are crucial for the proper functioning of a vehicle. Here is a breakdown of each system:
+
+1. Engine System:
+   - Components: Engine itself, fuel system, ignition system, air supply system.
+   - Function: Responsible for generating power by burning fuel and converting it into mechanical energy to move the vehicle.     
+
+2. Electrical System:
+   - Components: Battery, alternator, wiring, lights, sensors.   
+   - Function: Provides electrical power to various components in the vehicle, including starting the engine, powering lights, and operating electronic systems.
+
+3. Chassis System:
+   - Components: Frame, suspension, steering, brakes, wheels.    
+   - Function: Supports the vehicle structure, provides stability, and allows for safe handling and braking.
+
+4. Transmission System:
+   - Components: Gearbox, differential, final drive components.  
+   - Function: Transfers power from the engine to the wheels, allowing the vehicle to change speed and direction.
+
+**Diagnosis:**
+- Without specific symptoms or issues mentioned, it is challenging to diagnose a problem accurately. If you are experiencing any specific problems with your vehicle, please provide more details for a more precise diagnosis.
+
+**Sources:**
+- [1] data\Automotive_Engineering.pdf (Page 22)
+- [2] data\Automotive_Engineering.pdf (Page 22)
+- [3] data\Automotive_Engineering.pdf (Page 21)
+- [4] data\Automotive_Engineering.pdf (Page 21)
+
+------------------------------------------------------------     
+
+You: what are  Types of motor vehicle companies?
+
+Loading weights: 100%|█████| 103/103 [00:00<00:00, 10444.94it/s]
+BertModel LOAD REPORT from: sentence-transformers/all-MiniLM-L6-v2
+Key                     | Status     |  |
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  |
+
+Notes:
+- UNEXPECTED    :can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+  [Retrieve] Found 4 relevant chunks for: 'what are  Types of motor vehicle companies?'
+    [1] data\Automotive_Engineering.pdf (Page 24)
+    [2] data\Automotive_Engineering.pdf (Page 24)
+    [3] data\Automotive_Engineering.pdf (Page 26)
+    [4] data\Automotive_Engineering.pdf (Page 26)
+  [Generate] Answer produced.
+
+Assistant: Based on the provided information, the types of motor vehicle companies can vary in size and structure. They can range from very small one-person businesses to large main dealers. Some examples include:
+
+1. Main Dealers: These are large motor vehicle companies that typically represent specific brands like Ford (as shown in Figure 1.21).
+
+2. Quick-Fit Companies: These are well-known companies that specialize in quick vehicle services (as shown in Figure 1.22).       
+
+3. Independent Garages and Car Sales Businesses: These are businesses that operate independently and offer services such as repairs, maintenance, and car sales (as shown in Figure 1.23).
+
+Each type of company may have different systems in place, but they all have similar requirements in terms of servicing and maintaining vehicles.
+
+Sources:
+- Automotive Engineering.pdf (Page 24)
+
+------------------------------------------------------------   
